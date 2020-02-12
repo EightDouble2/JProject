@@ -55,5 +55,6 @@
 
     <modules>
         <module>business-reg-service</module>
+        <module>business-oauth2-service</module>
     </modules>
 </project>

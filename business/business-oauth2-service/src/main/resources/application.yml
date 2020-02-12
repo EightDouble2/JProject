@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: business-oauth2
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.johnny.com:80
+
+dubbo:
+  scan:
+    base-packages: com.johnny.jshop.business.controller
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+  registry:
+    address: nacos://nacos.johnny.com
+    port: 80
+
+server:
+  port: 9001
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
