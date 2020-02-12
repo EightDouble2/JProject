@@ -13,7 +13,7 @@ spring:
 
 dubbo:
   scan:
-    base-packages: com.johnny.jproject.business.controller
+    base-packages: com.johnny.jshop.business.controller
   protocol:
     name: dubbo
     port: -1

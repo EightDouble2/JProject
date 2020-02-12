@@ -1,4 +1,4 @@
-package com.johnny.jproject.provider.api;
+package com.johnny.jshop.provider.api;
 
 public interface EchoService {
 

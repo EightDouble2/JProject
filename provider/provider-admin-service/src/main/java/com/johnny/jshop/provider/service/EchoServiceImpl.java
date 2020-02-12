@@ -1,6 +1,6 @@
-package com.johnny.jproject.provider.service;
+package com.johnny.jshop.provider.service;
 
-import com.johnny.jproject.provider.api.EchoService;
+import com.johnny.jshop.provider.api.EchoService;
 import org.apache.dubbo.config.annotation.Service;
 
 @Service(version = "1.0.0")

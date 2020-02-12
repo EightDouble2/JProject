@@ -1,6 +1,6 @@
-package com.johnny.jproject.provider.api;
+package com.johnny.jshop.provider.api;
 
-import com.johnny.jproject.provider.domain.UmsAdmin;
+import com.johnny.jshop.provider.domain.UmsAdmin;
 
 /**
  * 用户管理服务
@@ -26,7 +26,7 @@ public interface UmsAdminService{
     /**
      * 获取用户
      * @Param username:
-     * @return: com.johnny.jproject.provider.domain.UmsAdmin
+     * @return: com.johnny.jshop.provider.domain.UmsAdmin
      * @author: JohnnyHao
      * @date: 2020-02-11
      */
@@ -35,7 +35,7 @@ public interface UmsAdminService{
     /**
      * 获取用户
      * @Param umsAdmin:
-     * @return: com.johnny.jproject.provider.domain.UmsAdmin
+     * @return: com.johnny.jshop.provider.domain.UmsAdmin
      * @author: JohnnyHao
      * @date: 2020-02-11
      */

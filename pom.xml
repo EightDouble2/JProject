@@ -10,8 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.johnny.jproject</groupId>
+    <groupId>com.johnny.jshop</groupId>
     <artifactId>parent</artifactId>
+    <name>JShop</name>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -49,7 +50,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.johnny.jproject</groupId>
+                <groupId>com.johnny.jshop</groupId>
                 <artifactId>dependencies</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>

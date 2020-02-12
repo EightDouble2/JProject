@@ -1,6 +1,6 @@
-package com.johnny.jproject.business.controller;
+package com.johnny.jshop.business.controller;
 
-import com.johnny.jproject.provider.api.EchoService;
+import com.johnny.jshop.provider.api.EchoService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

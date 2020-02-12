@@ -1,13 +1,12 @@
-package com.johnny.jproject.provider.tests;
+package com.johnny.jshop.provider.tests;
 import java.util.Date;
 
-import com.johnny.jproject.provider.api.UmsAdminService;
-import com.johnny.jproject.provider.domain.UmsAdmin;
-import com.johnny.jproject.provider.mapper.UmsAdminMapper;
+import com.johnny.jshop.provider.api.UmsAdminService;
+import com.johnny.jshop.provider.domain.UmsAdmin;
+import com.johnny.jshop.provider.mapper.UmsAdminMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;

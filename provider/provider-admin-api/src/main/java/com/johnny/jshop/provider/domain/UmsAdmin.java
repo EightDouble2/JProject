@@ -1,4 +1,4 @@
-package com.johnny.jproject.provider.domain;
+package com.johnny.jshop.provider.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

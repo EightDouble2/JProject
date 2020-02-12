@@ -1,9 +1,9 @@
-package com.johnny.jproject.provider.service;
+package com.johnny.jshop.provider.service;
 
-import com.johnny.jproject.provider.domain.UmsAdmin;
+import com.johnny.jshop.provider.domain.UmsAdmin;
 import javax.annotation.Resource;
-import com.johnny.jproject.provider.mapper.UmsAdminMapper;
-import com.johnny.jproject.provider.api.UmsAdminService;
+import com.johnny.jshop.provider.mapper.UmsAdminMapper;
+import com.johnny.jshop.provider.api.UmsAdminService;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import tk.mybatis.mapper.entity.Example;
@@ -45,7 +45,7 @@ public class UmsAdminServiceImpl implements UmsAdminService{
     /**
      * 获取用户
      * @Param username:
-     * @return: com.johnny.jproject.provider.domain.UmsAdmin
+     * @return: com.johnny.jshop.provider.domain.UmsAdmin
      * @author: JohnnyHao
      * @date: 2020-02-12
      */
@@ -59,7 +59,7 @@ public class UmsAdminServiceImpl implements UmsAdminService{
     /**
      * 获取用户
      * @Param umsAdmin:
-     * @return: com.johnny.jproject.provider.domain.UmsAdmin
+     * @return: com.johnny.jshop.provider.domain.UmsAdmin
      * @author: JohnnyHao
      * @date: 2020-02-12
      */

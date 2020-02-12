@@ -1,4 +1,4 @@
-package com.johnny.jproject.commons.dto;
+package com.johnny.jshop.commons.dto;
 
 import lombok.Data;
 

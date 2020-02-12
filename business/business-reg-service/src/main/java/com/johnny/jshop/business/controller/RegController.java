@@ -1,8 +1,8 @@
-package com.johnny.jproject.business.controller;
+package com.johnny.jshop.business.controller;
 
-import com.johnny.jproject.commons.dto.ResponseResult;
-import com.johnny.jproject.provider.api.UmsAdminService;
-import com.johnny.jproject.provider.domain.UmsAdmin;
+import com.johnny.jshop.commons.dto.ResponseResult;
+import com.johnny.jshop.provider.api.UmsAdminService;
+import com.johnny.jshop.provider.domain.UmsAdmin;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,7 +32,7 @@ public class RegController {
     /** 
      * 注册.
      * @Param umsAdmin: 
-     * @return: com.johnny.jproject.commons.dto.ResponseResult<com.johnny.jproject.provider.domain.UmsAdmin> 
+     * @return: com.johnny.jshop.commons.dto.ResponseResult<com.johnny.jshop.provider.domain.UmsAdmin>
      * @author: JohnnyHao
      * @date: 2020-02-11 
      */ 

@@ -1,4 +1,4 @@
-package com.johnny.jproject.provider.configure;
+package com.johnny.jshop.provider.configure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

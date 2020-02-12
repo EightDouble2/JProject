@@ -15,7 +15,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${base.config.tidb.hostname}:${base.config.tidb.port}/jproject_ums_admin?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
+    url: jdbc:mysql://${base.config.tidb.hostname}:${base.config.tidb.port}/jshop_ums_admin?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
     username: root
     password:
     hikari:
@@ -30,7 +30,7 @@ spring:
 
 dubbo:
   scan:
-    base-packages: com.johnny.jproject.provider.service
+    base-packages: com.johnny.jshop.provider.service
   protocol:
     name: dubbo
     port: -1
@@ -40,5 +40,5 @@ dubbo:
     port: ${base.config.nacos.port}
 
 mybatis:
-  type-aliases-package: com.johnny.jproject.provider.domain
+  type-aliases-package: com.johnny.jshop.provider.domain
   mapper-locations: classpath:mapper/*.xml
