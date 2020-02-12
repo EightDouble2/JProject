@@ -107,6 +107,11 @@
         </dependency>
         <dependency>
             <groupId>com.johnny.jshop</groupId>
+            <artifactId>commons-utils</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.johnny.jshop</groupId>
             <artifactId>provider-admin-api</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

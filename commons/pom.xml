@@ -37,5 +37,6 @@
     <modules>
         <module>commons-provider</module>
         <module>commons-dto</module>
+        <module>commons-utils</module>
     </modules>
 </project>

@@ -132,40 +132,47 @@ public class ResponseResult<T> implements Serializable {
      * @author JohnnyHao
      * @date 2020-02-11 
      */ 
-    public class CodeStatus {
-        /**
-         * 请求成功
-         */
-        public static final int OK = 20000;
+    public enum CodeStatus {
+        /*请求成功*/
+        OK(20000, "请求成功"),
 
-        /**
-         * 请求失败
-         */
-        public static final int FAIL = 20002;
+        /*请求失败*/
+        FAIL(20002, "请求失败"),
 
-        /**
-         * 熔断请求
-         */
-        public static final int BREAKING = 20004;
+        /*熔断请求*/
+        BREAKING(20004, "熔断请求"),
 
-        /**
-         * 非法请求
-         */
-        public static final int ILLEGAL_REQUEST = 50000;
+        /*非法请求*/
+        ILLEGAL_REQUEST(50000, "非法请求"),
 
-        /**
-         * 非法令牌
-         */
-        public static final int ILLEGAL_TOKEN = 50008;
+        /*非法令牌*/
+        ILLEGAL_TOKEN(50008, "非法令牌"),
 
-        /**
-         * 其他客户登录
-         */
-        public static final int OTHER_CLIENTS_LOGGED_IN = 50012;
+        /*其他客户登录*/
+        OTHER_CLIENTS_LOGGED_IN(50012, "其他客户登录"),
 
-        /**
-         * 令牌已过期
-         */
-        public static final int TOKEN_EXPIRED = 50014;
+        /*令牌已过期*/
+        TOKEN_EXPIRED(50014, "令牌已过期");
+
+        private final int value;
+        private final String reasonPhrase;
+
+        private CodeStatus(int value, String reasonPhrase) {
+            this.value = value;
+            this.reasonPhrase = reasonPhrase;
+        }
+
+        public int value() {
+            return this.value;
+        }
+
+        public String getReasonPhrase() {
+            return this.reasonPhrase;
+        }
+
+        @Override
+        public String toString() {
+            return this.value + " " + this.name();
+        }
     }
 }
