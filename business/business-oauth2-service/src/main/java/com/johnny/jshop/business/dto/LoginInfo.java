@@ -27,4 +27,10 @@ public class LoginInfo implements Serializable {
      */
     private String avatar;
 
+    /**
+     * 头像
+     */
+    private String nickName;
+
+
 }

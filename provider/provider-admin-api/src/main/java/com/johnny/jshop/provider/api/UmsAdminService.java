@@ -41,4 +41,13 @@ public interface UmsAdminService{
      */
     UmsAdmin get(UmsAdmin umsAdmin);
 
+    /**
+     * 更新用户
+     * @Param umsAdmin:
+     * @return: int
+     * @author: JohnnyHao
+     * @date: 2020-02-13
+     */
+    int update(UmsAdmin umsAdmin);
+
 }
