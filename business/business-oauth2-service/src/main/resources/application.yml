@@ -13,7 +13,7 @@ spring:
 
 dubbo:
   scan:
-    base-packages: com.johnny.jshop.business.controller
+    base-packages: com.johnny.jshop.business.controller, com.johnny.jshop.business.service
   protocol:
     name: dubbo
     port: -1
@@ -21,6 +21,12 @@ dubbo:
   registry:
     address: nacos://nacos.johnny.com
     port: 80
+
+feign:
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
 
 server:
   port: 9001

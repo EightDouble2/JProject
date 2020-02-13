@@ -51,10 +51,27 @@
         </dependency>
 
         <!-- Projects -->
+        <dependency>
+            <groupId>com.johnny.jshop</groupId>
+            <artifactId>commons-dto</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.johnny.jshop</groupId>
+            <artifactId>commons-utils</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.johnny.jshop</groupId>
+            <artifactId>configuration-feign</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
     <modules>
         <module>business-reg-service</module>
         <module>business-oauth2-service</module>
+        <module>business-profile-feign</module>
+        <module>business-profile-service</module>
     </modules>
 </project>
