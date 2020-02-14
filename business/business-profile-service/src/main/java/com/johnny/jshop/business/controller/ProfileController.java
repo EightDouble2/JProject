@@ -1,5 +1,7 @@
 package com.johnny.jshop.business.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.johnny.jshop.business.controller.fallback.ProfileControllerFallback;
 import com.johnny.jshop.business.dto.UmsAdminDTO;
 import com.johnny.jshop.business.dto.params.IconParam;
 import com.johnny.jshop.business.dto.params.PasswordParam;
@@ -47,6 +49,7 @@ public class ProfileController {
      * @date: 2020-02-13
      */
     @GetMapping(value = "/info/{username}")
+    @SentinelResource(value = "info", fallback = "infoFallback", fallbackClass = ProfileControllerFallback.class)
     public ResponseResult<UmsAdminDTO> info(@PathVariable String username) {
         UmsAdmin umsAdmin = umsAdminService.get(username);
         UmsAdminDTO dto = new UmsAdminDTO();

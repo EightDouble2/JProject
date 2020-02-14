@@ -88,6 +88,11 @@
             <artifactId>commons-provider</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.johnny.jshop</groupId>
+            <artifactId>configuration-sentinel</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
     </dependencies>
 

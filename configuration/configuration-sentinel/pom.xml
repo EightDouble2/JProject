@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.johnny.jshop</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>configuration</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>configuration</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>configuration-sentinel</artifactId>
+    <packaging>jar</packaging>
 
     <licenses>
         <license>
@@ -29,13 +29,21 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-apache-dubbo-adapter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-transport-simple-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-annotation-aspectj</artifactId>
         </dependency>
     </dependencies>
-
-    <modules>
-        <module>configuration-feign</module>
-        <module>configuration-sentinel</module>
-    </modules>
 </project>
