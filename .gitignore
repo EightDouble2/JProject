@@ -28,3 +28,6 @@ target/
 
 ### VS Code ###
 .vscode/
+
+### JRebel ###
+*rebel*

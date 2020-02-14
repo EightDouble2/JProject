@@ -1,4 +1,4 @@
-package com.johnny.jshop.business.dto;
+package com.johnny.jshop.business.dto.params;
 
 import lombok.Data;
 

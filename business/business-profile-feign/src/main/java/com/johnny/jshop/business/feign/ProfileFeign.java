@@ -1,6 +1,8 @@
 package com.johnny.jshop.business.feign;
 
-import com.johnny.jshop.business.dto.ProfileParam;
+import com.johnny.jshop.business.dto.params.IconParam;
+import com.johnny.jshop.business.dto.params.PasswordParam;
+import com.johnny.jshop.business.dto.params.ProfileParam;
 import com.johnny.jshop.configuration.FeignRequestConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,5 +28,11 @@ public interface ProfileFeign {
 
     @PostMapping(value = "update")
     String update(@RequestBody ProfileParam profileParam);
+
+    @PostMapping(value = "modify/password")
+    String modifyPassword(@RequestBody PasswordParam passwordParam);
+
+    @PostMapping(value = "modify/icon")
+    String modifyIcon(@RequestBody IconParam iconParam);
 
 }

@@ -50,4 +50,25 @@ public interface UmsAdminService{
      */
     int update(UmsAdmin umsAdmin);
 
+    /**
+     * 修改密码
+     * @Param username:
+ * @Param Path:
+     * @return: int
+     * @author: JohnnyHao
+     * @date: 2020-02-14
+     */
+    int modifyPassword(String username, String password);
+
+    /**
+     * 修改头像
+     * @Param username:
+     * @Param path:
+     * @return: int
+     * @author: JohnnyHao
+     *
+     * @date: 2020-02-14
+     */
+    int modifyIcon(String username, String path);
+
 }

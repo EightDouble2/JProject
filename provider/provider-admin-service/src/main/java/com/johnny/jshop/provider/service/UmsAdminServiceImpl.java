@@ -82,6 +82,20 @@ public class UmsAdminServiceImpl implements UmsAdminService{
         return umsAdminMapper.updateByPrimaryKey(oldAdmin);
     }
 
+    @Override
+    public int modifyPassword(String username, String password) {
+        UmsAdmin umsAdmin = get(username);
+        umsAdmin.setPassword(bCryptPasswordEncoder.encode(password));
+        return umsAdminMapper.updateByPrimaryKey(umsAdmin);
+    }
+
+    @Override
+    public int modifyIcon(String username, String path) {
+        UmsAdmin umsAdmin = get(username);
+        umsAdmin.setIcon(path);
+        return umsAdminMapper.updateByPrimaryKey(umsAdmin);
+    }
+
     /**
      * 初始化用户对象
      * @Param umsAdmin:
