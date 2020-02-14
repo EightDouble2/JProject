@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +19,7 @@ import org.springframework.security.oauth2.provider.client.JdbcClientDetailsServ
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 import javax.sql.DataSource;
 
@@ -44,11 +46,19 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    /**
+     * 注入Redis配置
+     */
+    @Autowired
+    private RedisConnectionFactory redisConnectionFactory;
+
     @Bean
     public TokenStore tokenStore() {
 //        return new InMemoryTokenStore();
         // 基于 JDBC 实现，令牌保存到数据库
-        return new JdbcTokenStore(dataSource());
+//        return new JdbcTokenStore(dataSource());
+        // 基于 Redis 实现，令牌保存到Redis
+        return new RedisTokenStore(redisConnectionFactory);
     }
 
     @Bean
