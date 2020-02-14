@@ -1,3 +1,15 @@
+base:
+  config:
+    tidb:
+      hostname: tidb.johnny.com
+      port: 4000
+    nacos:
+      hostname: nacos.johnny.com
+      port: 80
+    sentile:
+      hostname: localhost
+      port: 8080
+
 spring:
   application:
     name: business-oauth2
@@ -9,7 +21,25 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.johnny.com:80
+        server-addr: ${base.config.nacos.hostname}:${base.config.nacos.port}
+    sentinel:
+      transport:
+        dashboard: ${base.config.sentile.hostname}:${base.config.sentile.port}
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-url: jdbc:mysql://${base.config.tidb.hostname}:${base.config.tidb.port}/jshop_ums_oauth2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password:
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
 
 dubbo:
   scan:
@@ -19,8 +49,8 @@ dubbo:
     port: -1
     serialization: kryo
   registry:
-    address: nacos://nacos.johnny.com
-    port: 80
+    address: nacos://${base.config.nacos.hostname}
+    port: ${base.config.nacos.port}
 
 feign:
   okhttp:
