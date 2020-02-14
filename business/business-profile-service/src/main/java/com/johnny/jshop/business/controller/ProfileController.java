@@ -1,5 +1,6 @@
 package com.johnny.jshop.business.controller;
 
+import com.johnny.jshop.business.dto.UmsAdminDTO;
 import com.johnny.jshop.business.dto.params.IconParam;
 import com.johnny.jshop.business.dto.params.PasswordParam;
 import com.johnny.jshop.business.dto.params.ProfileParam;
@@ -46,9 +47,11 @@ public class ProfileController {
      * @date: 2020-02-13
      */
     @GetMapping(value = "/info/{username}")
-    public ResponseResult<UmsAdmin> info(@PathVariable String username) {
+    public ResponseResult<UmsAdminDTO> info(@PathVariable String username) {
         UmsAdmin umsAdmin = umsAdminService.get(username);
-        return new ResponseResult<UmsAdmin>(ResponseResult.CodeStatus.OK.value(), ResponseResult.CodeStatus.OK.getReasonPhrase(), umsAdmin);
+        UmsAdminDTO dto = new UmsAdminDTO();
+        BeanUtils.copyProperties(umsAdmin, dto);
+        return new ResponseResult<UmsAdminDTO>(ResponseResult.CodeStatus.OK.value(), ResponseResult.CodeStatus.OK.getReasonPhrase(), dto);
     }
 
     /**
