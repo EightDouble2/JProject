@@ -3,9 +3,9 @@ package com.johnny.jshop.cloud.producer;
 import com.johnny.jshop.cloud.api.MessageService;
 import com.johnny.jshop.cloud.dto.UmsAdminLoginLogDTO;
 import com.johnny.jshop.cloud.message.MessageSource;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  * @date 2020-02-16
  */
 @Component
-@Service
+@Service(version = "1.0.0")
 public class MessageProducer implements MessageService {
 
     @Resource
