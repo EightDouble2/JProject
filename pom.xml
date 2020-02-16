@@ -20,10 +20,11 @@
         <module>dependencies</module>
         <module>commons</module>
         <module>configuration</module>
-        <module>gateway</module>
-        <module>cloud</module>
         <module>provider</module>
         <module>business</module>
+        <module>gateway</module>
+        <module>cloud</module>
+        <module>message</module>
     </modules>
 
     <properties>

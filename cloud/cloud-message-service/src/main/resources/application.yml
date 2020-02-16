@@ -6,10 +6,13 @@ base:
     nacos:
       hostname: 192.168.62.132
       port: 8848
+    rocketmq:
+      hostname: 192.168.62.132
+      port: 9876
 
 spring:
   application:
-    name: cloud-upload
+    name: cloud-message
   main:
     allow-bean-definition-overriding: true
   jackson:
@@ -19,6 +22,13 @@ spring:
     nacos:
       discovery:
         server-addr: ${base.config.nacos.hostname}:${base.config.nacos.port}
+    # RocketMQ 相关配置
+    stream:
+      rocketmq:
+        binder:
+          name-server: ${base.config.rocketmq.hostname}:${base.config.rocketmq.port}
+      bindings:
+        admin-login-log-topic: {destination: admin-login-log-topic, content-type: application/json}
 
 security:
   oauth2:
@@ -31,7 +41,7 @@ security:
       token-info-uri: http://${base.config.oauth.hostname}:${base.config.oauth.port}/oauth/check_token
 
 server:
-  port: 10001
+  port: 10002
 
 management:
   endpoints:

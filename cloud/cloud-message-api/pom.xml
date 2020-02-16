@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.johnny.jshop</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>cloud</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>provider</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>cloud-message-api</artifactId>
+    <packaging>jar</packaging>
 
     <licenses>
         <license>
@@ -85,21 +85,8 @@
         <!-- Projects -->
         <dependency>
             <groupId>com.johnny.jshop</groupId>
-            <artifactId>commons-provider</artifactId>
+            <artifactId>cloud-message-dto</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.johnny.jshop</groupId>
-            <artifactId>configuration-sentinel</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-
     </dependencies>
-
-    <modules>
-        <module>provider-admin-api</module>
-        <module>provider-admin-service</module>
-        <module>provider-admin-login-log-api</module>
-        <module>provider-admin-login-log-service</module>
-    </modules>
 </project>

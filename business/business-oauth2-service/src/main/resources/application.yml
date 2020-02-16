@@ -1,17 +1,17 @@
 base:
   config:
-    tidb:
-      hostname: tidb.johnny.com
-      port: 4000
+    mysql:
+      hostname: 192.168.62.132
+      port: 3306
     nacos:
-      hostname: nacos.johnny.com
-      port: 80
+      hostname: 192.168.62.132
+      port: 8848
     sentile:
-      hostname: localhost
+      hostname: 192.168.62.132
       port: 8080
     redis:
-      hostname: redis.johnny.com
-      port: 6380
+      hostname: 192.168.62.132
+      port: 6379
 
 spring:
   application:
@@ -31,9 +31,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    jdbc-url: jdbc:mysql://${base.config.tidb.hostname}:${base.config.tidb.port}/jshop_ums_oauth2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    jdbc-url: jdbc:mysql://${base.config.mysql.hostname}:${base.config.mysql.port}/jshop_ums_oauth2?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password:
+    password: 123456
     hikari:
       minimum-idle: 5
       idle-timeout: 600000

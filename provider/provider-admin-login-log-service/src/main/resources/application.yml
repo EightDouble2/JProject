@@ -9,13 +9,13 @@ base:
 
 spring:
   application:
-    name: admin-provider
+    name: ums-admin-login-log-provider
   main:
     allow-bean-definition-overriding: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${base.config.mysql.hostname}:${base.config.mysql.port}/jshop_ums_admin?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
+    url: jdbc:mysql://${base.config.mysql.hostname}:${base.config.mysql.port}/jshop_ums_admin_login_log?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
     username: root
     password: 123456
     hikari:
