@@ -7,6 +7,8 @@ import com.johnny.jshop.business.feign.ProfileFeign;
 import com.johnny.jshop.cloud.api.MessageService;
 import com.johnny.jshop.cloud.feign.MessageFeign;
 import com.johnny.jshop.cloud.feign.dto.UmsAdminLoginLogDTO;
+import com.johnny.jshop.business.BusinessException;
+import com.johnny.jshop.business.BusinessStatus;
 import com.johnny.jshop.commons.dto.ResponseResult;
 import com.johnny.jshop.commons.utils.MapperUtils;
 import com.johnny.jshop.commons.utils.OkHttpClientUtil;
@@ -88,7 +90,7 @@ public class LoginController {
      * @date: 2020-02-12
      */
     @PostMapping(value = "/user/login")
-    public ResponseResult<Map<String, Object>> login(@RequestBody LoginParam loginParam, HttpServletRequest request) {
+    public ResponseResult<Map<String, Object>> login(@RequestBody LoginParam loginParam, HttpServletRequest request) throws Exception {
 
         // 封装返回的结果集
         Map<String, Object> result = Maps.newHashMap();
@@ -96,7 +98,8 @@ public class LoginController {
         // 验证账号密码
         UserDetails userDetails = userDetailsService.loadUserByUsername(loginParam.getUsername());
         if (userDetails == null || !bCryptPasswordEncoder.matches(loginParam.getPassword(), userDetails.getPassword())) {
-            return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.FAIL.value(), ResponseResult.CodeStatus.FAIL.getReasonPhrase(), null);
+            throw new BusinessException(BusinessStatus.ADMIN_PASSWORD);
+//            return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.FAIL.value(), ResponseResult.CodeStatus.FAIL.getReasonPhrase(), null);
         }
 
         // 通过http客户端请求登录接口
