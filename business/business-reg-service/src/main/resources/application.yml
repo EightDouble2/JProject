@@ -9,7 +9,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.62.132:8848
+        server-addr: nacos.johnny.com:80
 
 dubbo:
   scan:
@@ -19,8 +19,8 @@ dubbo:
     port: -1
     serialization: kryo
   registry:
-    address: nacos://192.168.62.132
-    port: 8848
+    address: nacos://nacos.johnny.com
+    port: 80
 
 server:
   # ${random.int[9000,9999]} 随机端口

@@ -1,4 +1,4 @@
-package com.johnny.jshop.cloud.dto;
+package com.johnny.jshop.cloud.feign.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

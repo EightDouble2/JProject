@@ -34,10 +34,5 @@
             <scope>provided</scope>
         </dependency>
         <!-- Projects -->
-        <dependency>
-            <groupId>com.johnny.jshop</groupId>
-            <artifactId>cloud-message-dto</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
     </dependencies>
 </project>

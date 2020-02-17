@@ -1,7 +1,7 @@
 package com.johnny.jshop.cloud.tests;
 import java.util.Date;
 
-import com.johnny.jshop.cloud.dto.UmsAdminLoginLogDTO;
+import com.johnny.jshop.cloud.feign.dto.UmsAdminLoginLogDTO;
 import com.johnny.jshop.commons.utils.MapperUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;

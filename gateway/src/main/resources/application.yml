@@ -1,8 +1,8 @@
 base:
   config:
     nacos:
-      hostname: 192.168.62.132
-      port: 8848
+      hostname: nacos.johnny.com
+      port: 80
 
 spring:
   application:

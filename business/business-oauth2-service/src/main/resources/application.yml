@@ -1,16 +1,16 @@
 base:
   config:
     mysql:
-      hostname: 192.168.62.132
+      hostname: mysql.johnny.com
       port: 3306
     nacos:
-      hostname: 192.168.62.132
-      port: 8848
+      hostname: nacos.johnny.com
+      port: 80
     sentile:
-      hostname: 192.168.62.132
-      port: 8080
+      hostname: sentinel.johnny.com
+      port: 80
     redis:
-      hostname: 192.168.62.132
+      hostname: redis.johnny.com
       port: 6379
 
 spring:

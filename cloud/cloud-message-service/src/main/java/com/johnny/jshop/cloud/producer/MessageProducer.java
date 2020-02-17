@@ -1,7 +1,7 @@
 package com.johnny.jshop.cloud.producer;
 
 import com.johnny.jshop.cloud.api.MessageService;
-import com.johnny.jshop.cloud.dto.UmsAdminLoginLogDTO;
+import com.johnny.jshop.cloud.feign.dto.UmsAdminLoginLogDTO;
 import com.johnny.jshop.cloud.message.MessageSource;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.messaging.support.MessageBuilder;

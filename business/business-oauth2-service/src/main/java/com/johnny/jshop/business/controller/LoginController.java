@@ -4,11 +4,18 @@ import com.google.common.collect.Maps;
 import com.johnny.jshop.business.dto.LoginInfo;
 import com.johnny.jshop.business.dto.LoginParam;
 import com.johnny.jshop.business.feign.ProfileFeign;
+import com.johnny.jshop.cloud.api.MessageService;
+import com.johnny.jshop.cloud.feign.MessageFeign;
+import com.johnny.jshop.cloud.feign.dto.UmsAdminLoginLogDTO;
 import com.johnny.jshop.commons.dto.ResponseResult;
 import com.johnny.jshop.commons.utils.MapperUtils;
 import com.johnny.jshop.commons.utils.OkHttpClientUtil;
+import com.johnny.jshop.commons.utils.UserAgentUtils;
+import com.johnny.jshop.provider.api.UmsAdminService;
 import com.johnny.jshop.provider.domain.UmsAdmin;
+import eu.bitwalker.useragentutils.Browser;
 import okhttp3.Response;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 
@@ -61,7 +69,16 @@ public class LoginController {
     public TokenStore tokenStore;
 
     @Resource
-    public ProfileFeign profileFeign;
+    private ProfileFeign profileFeign;
+
+    @Resource
+    private MessageFeign messageFeign;
+
+    @Reference(version = "1.0.0")
+    private UmsAdminService umsAdminService;
+
+    @Reference(version = "1.0.0")
+    private MessageService messageService;
 
     /**
      * 登录接口
@@ -71,7 +88,7 @@ public class LoginController {
      * @date: 2020-02-12
      */
     @PostMapping(value = "/user/login")
-    public ResponseResult<Map<String, Object>> login(@RequestBody LoginParam loginParam) {
+    public ResponseResult<Map<String, Object>> login(@RequestBody LoginParam loginParam, HttpServletRequest request) {
 
         // 封装返回的结果集
         Map<String, Object> result = Maps.newHashMap();
@@ -100,6 +117,8 @@ public class LoginController {
             e.printStackTrace();
         }
 
+        // 发送登录日志
+        sendAdminLoginLog(userDetails.getUsername(), request);
         return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.OK.value(), ResponseResult.CodeStatus.OK.getReasonPhrase(), result);
     }
 
@@ -144,5 +163,32 @@ public class LoginController {
         return new ResponseResult<Void>(ResponseResult.CodeStatus.OK.value(), ResponseResult.CodeStatus.OK.getReasonPhrase(), null);
     }
 
+    /**
+     * 发送登录日志
+     * @Param username:
+     * @Param request:
+     * @return: void
+     * @author: JohnnyHao
+     * @date: 2020-02-17
+     */
+    private boolean sendAdminLoginLog(String username, HttpServletRequest request) {
+        UmsAdmin umsAdmin = umsAdminService.get(username);
+
+//        if (umsAdmin != null) {
+            // 获取请求的用户代理信息
+            Browser browser = UserAgentUtils.getBrowser(request);
+            String ip = UserAgentUtils.getIpAddr(request);
+            String address = UserAgentUtils.getIpInfo(ip).getCity();
+
+            UmsAdminLoginLogDTO dto = new UmsAdminLoginLogDTO();
+            dto.setAdminId(umsAdmin.getId());
+            dto.setCreateTime(new Date());
+            dto.setIp(ip);
+            dto.setAddress(address);
+            dto.setUserAgent(browser.getName());
+
+            return messageService.sendAdminLoginLog(dto);
+//        }
+    }
 
 }

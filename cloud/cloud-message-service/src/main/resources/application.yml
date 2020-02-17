@@ -4,10 +4,10 @@ base:
       hostname: localhost
       port: 9001
     nacos:
-      hostname: 192.168.62.132
-      port: 8848
+      hostname: nacos.johnny.com
+      port: 80
     rocketmq:
-      hostname: 192.168.62.132
+      hostname: rocketmq.johnny.com
       port: 9876
 
 spring:
@@ -29,6 +29,17 @@ spring:
           name-server: ${base.config.rocketmq.hostname}:${base.config.rocketmq.port}
       bindings:
         admin-login-log-topic: {destination: admin-login-log-topic, content-type: application/json}
+
+dubbo:
+  scan:
+    base-packages: com.johnny.jshop.cloud.producer
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+  registry:
+    address: nacos://${base.config.nacos.hostname}
+    port: ${base.config.nacos.port}
 
 security:
   oauth2:

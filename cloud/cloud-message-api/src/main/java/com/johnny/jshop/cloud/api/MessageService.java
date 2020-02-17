@@ -1,6 +1,6 @@
 package com.johnny.jshop.cloud.api;
 
-import com.johnny.jshop.cloud.dto.UmsAdminLoginLogDTO;
+import com.johnny.jshop.cloud.feign.dto.UmsAdminLoginLogDTO;
 
 public interface MessageService {
 

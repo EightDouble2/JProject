@@ -1,1 +1,1 @@
-# JProject
+# JShop
